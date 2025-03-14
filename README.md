@@ -93,7 +93,7 @@ This table shows the average difference in stats at the 25 min mark for each reg
 
 <p></p>
 
-## Assessment of Missingness
+## Missingness Assessment
 
 This is a table containing the top 5 most missing columns after counting all the missing values
 
@@ -154,3 +154,24 @@ if the p-value is less than α, we reject H0, indicating that the missingness of
 Based on the results of the permutation test, it can be determined that the missingness of 'totalkillsat25' is infact influenced by different regions in 'league' but not individual 'gameid'
 
 ## Hypothesis Testing
+
+I want to see if kills in the early game, 10 minutes, actually affect the game length since pro play is more strategy heavy rather than simply killing your opponents.
+**Null Hypothesis (H0):** The total number of kills at the 10 minute mark, 'totalkillsat10' has no effect on the duration of the game, 'gamelength'
+
+<p></p>
+
+**Alternative Hypothesis (H1):** A higher total number of kills at the 10 minute mark,'totalkillsat10' leads to a shorter game duration, 'gamelength'
+
+<p></p>
+
+**Test Statistic:** Pearson Correlation Coefficient
+
+<p></p>
+
+**Significance Level (α):** 0.05
+
+<p></p>
+
+Since both 'totalkillsat10' and 'gamelength' are continuous and appromiximately linear, I chose the pearson test to find the correlation between the two variables and whether that correlation is significant.
+The pearson correlation value I got was around -0.09, signifying a very small negative correlation, and a p-value of around 2.45e-16.
+Since the p-value is less than our threshold of 0.05, we reject our null hypothesis and that we are 95% confident that there is a small negative correlation between 'totalkillsat10' and 'gamelength'.
