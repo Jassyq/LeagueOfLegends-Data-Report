@@ -19,6 +19,18 @@ This is the cleaned dataframe after removing unnecessary columns that is not rel
 
 <p></p>
 
+## lol df
+
+| gameid           | golddiffat10 | xpdiffat10 | csdiffat10 | golddiffat15 | xpdiffat15 | csdiffat15 | golddiffat20 | xpdiffat20 | csdiffat20 | golddiffat25 | xpdiffat25 | csdiffat25 | gamelength | league | totalkillsat10 | totalkillsat15 | totalkillsat20 | totalkillsat25 |
+| :--------------- | -----------: | ---------: | ---------: | -----------: | ---------: | ---------: | -----------: | ---------: | ---------: | -----------: | ---------: | ---------: | ---------: | :----- | -------------: | -------------: | -------------: | -------------: |
+| LOLTMNT99_132542 |         1364 |        557 |         17 |         2293 |        949 |         23 |         4248 |       2138 |         50 |        12741 |      10827 |         79 |       24.1 | TSC    |              6 |              9 |             15 |             27 |
+| LOLTMNT99_132665 |           88 |        625 |         17 |           75 |       1092 |         12 |          777 |       2722 |         24 |         1459 |       3393 |         25 |      35.37 | TSC    |              5 |             14 |             19 |             28 |
+| LOLTMNT99_132755 |         2583 |       1718 |         40 |          561 |        410 |         36 |         1528 |        722 |         40 |         1092 |       2266 |         32 |      34.98 | TSC    |              5 |              8 |             14 |             17 |
+| LOLTMNT99_131849 |         1260 |        512 |         33 |         2860 |       1199 |         34 |         2735 |       1738 |         24 |         1327 |       5586 |         12 |       42.6 | TSC    |              5 |             11 |             15 |             23 |
+| LOLTMNT99_131977 |         1191 |        963 |         44 |          592 |       1346 |         44 |         3319 |       3808 |         25 |         7225 |       9212 |         19 |      29.65 | TSC    |              6 |             13 |             19 |             25 |
+
+<p></p>
+
 ## Univariable plot
 
 This histogram shows the distribution of all the gamelength in minutes in the dataset.
