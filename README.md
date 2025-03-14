@@ -114,13 +114,13 @@ I believe that the missingess of columns such as gold/xp/cs diff at x minutes al
 ### Assessment of Missingness
 
 Since there are four columns with the same amount of missingness, I chose 'totalkillsat25' as the variable I was most interested in. I want to test out whether the column is MAR or NMAR.
-To test the hypothesis, a permuitation test is performed to evaluate if the missingness of 'totalkillsat25' is affected by the column 'league' which represents the region
+To test the hypothesis, a permuitation test is performed to evaluate if the missingness of 'totalkillsat25' is affected by the column 'league' which represents the region, and 'gameid' the id for each game.
 
-**Null Hypothesis (H0):** The missingness of 'totalkillsat25' does not depend on 'league'
+**Null Hypothesis (H0):** The missingness of 'totalkillsat25' does not depend on 'league' and 'gameid'
 
 <p></p>
 
-**Alternative Hypothesis (H1):** The missingness of 'totalkillsat25' does depend on 'league'
+**Alternative Hypothesis (H1):** The missingness of 'totalkillsat25' does depend on 'league' and 'gameid'
 
 <p></p>
 
@@ -137,6 +137,7 @@ if the p-value is less than α, we reject H0, indicating that the missingness of
 | Column         | p-value | Dependent on Missingness (p < 0.05)? |
 | -------------- | ------- | ------------------------------------ |
 | totalkillsat25 | 0.0     | True                                 |
+| gameid         | 1.0     | False                                |
 
 <iframe
   src="assets/plots/missing1.html"
@@ -144,3 +145,12 @@ if the p-value is less than α, we reject H0, indicating that the missingness of
   height="600"
   frameborder="0"
 ></iframe>
+<iframe
+  src="assets/plots/missing2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+Based on the results of the permutation test, it can be determined that the missingness of 'totalkillsat25' is infact influenced by different regions in 'league' but not individual 'gameid'
+
+## Hypothesis Testing
