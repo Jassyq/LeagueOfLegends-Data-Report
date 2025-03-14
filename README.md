@@ -76,7 +76,7 @@ This graph shows the relationship between game length in minutes and cs differen
   width="800"
   height="600"
   frameborder="0"
-></iframe>\
+></iframe>
 
 ### pivot table
 
@@ -90,3 +90,57 @@ This table shows the average difference in stats at the 25 min mark for each reg
 | PCS    | 54.99       | 5905.65      | 5609.44    |
 | PCS    | 54.99       | 5905.65      | 5609.44    |
 | CBLOL  | 40.82       | 4618.18      | 4900.09    |
+
+<p></p>
+
+## Assessment of Missingness
+
+This is a table containing the top 5 most missing columns after counting all the missing values
+
+|                | Missing Count | Missing Percentage |
+| :------------- | ------------: | -----------------: |
+| golddiffat25   |          1970 |            20.1061 |
+| xpdiffat25     |          1970 |            20.1061 |
+| csdiffat25     |          1970 |            20.1061 |
+| totalkillsat25 |          1970 |            20.1061 |
+| golddiffat20   |          1411 |            14.4009 |
+
+<p></p>
+
+### Not Missing At Random (NMAR) Analysis
+
+I believe that the missingess of columns such as gold/xp/cs diff at x minutes all have the potential to be NMAR since it can be understood that games from certain days or region just do not have the data present. This reasoning is also backed up by the missingness table for the top 5 most missing values which the top four have the same percetange of missingness.
+
+### Assessment of Missingness
+
+Since there are four columns with the same amount of missingness, I chose 'totalkillsat25' as the variable I was most interested in. I want to test out whether the column is MAR or NMAR.
+To test the hypothesis, a permuitation test is performed to evaluate if the missingness of 'totalkillsat25' is affected by the column 'league' which represents the region
+
+**Null Hypothesis (H0):** The missingness of 'totalkillsat25' does not depend on 'league'
+
+<p></p>
+
+**Alternative Hypothesis (H1):** The missingness of 'totalkillsat25' does depend on 'league'
+
+<p></p>
+
+**Test Statistic:** Total variation distance (TVD)
+
+<p></p>
+
+**Significance Level (α):** 0.05
+
+<p></p>
+
+if the p-value is less than α, we reject H0, indicating that the missingness of the 'totalkillsat25' column is dependent on the specific column. Otherwise, we fail to reject H0.
+
+| Column         | p-value | Dependent on Missingness (p < 0.05)? |
+| -------------- | ------- | ------------------------------------ |
+| totalkillsat25 | 0.0     | True                                 |
+
+<iframe
+  src="assets/plots/missing1.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
