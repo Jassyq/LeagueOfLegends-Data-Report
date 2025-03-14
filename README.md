@@ -1,9 +1,9 @@
-## Introduction
+# Introduction
 
 League of Legends is one of the most popular games of all time, with millions of players engaging in competitive matches daily. Each game unfolds uniquely, but certain in-game events and conditions can influence how long a match will last. Factors like gold differences, champion selections, early-game objectives, and team compositions all play a role in determining whether a game ends quickly or stretches into the late stages.
 In this project, we aim to analyze key variables and their impact on game length. By leveraging data from past matches, we will identify patterns and build predictive models to estimate how long a given game is likely to last. Understanding these correlations can provide strategic insights for players and enhance overall game analysis.
 
-## lol dataframe
+# lol dataframe
 
 This is the cleaned dataframe after removing unnecessary columns that is not relevent to the driving question
 
@@ -19,7 +19,7 @@ This is the cleaned dataframe after removing unnecessary columns that is not rel
 
 <p></p>
 
-## lol df
+# lol df
 
 | gameid           | golddiffat10 | xpdiffat10 | csdiffat10 | golddiffat15 | xpdiffat15 | csdiffat15 | golddiffat20 | xpdiffat20 | csdiffat20 | golddiffat25 | xpdiffat25 | csdiffat25 | gamelength | league | totalkillsat10 | totalkillsat15 | totalkillsat20 | totalkillsat25 |
 | :--------------- | -----------: | ---------: | ---------: | -----------: | ---------: | ---------: | -----------: | ---------: | ---------: | -----------: | ---------: | ---------: | ---------: | :----- | -------------: | -------------: | -------------: | -------------: |
@@ -31,7 +31,7 @@ This is the cleaned dataframe after removing unnecessary columns that is not rel
 
 <p></p>
 
-## Univariable plot
+# Univariable plot
 
 This histogram shows the distribution of all the gamelength in minutes in the dataset.
 We can see that the majority of the games is between 28-32 minutes and the graph is right skewed meaning there are less games that last longer.
@@ -43,7 +43,7 @@ We can see that the majority of the games is between 28-32 minutes and the graph
   frameborder="0"
 ></iframe>
 
-## Bivariable plot
+# Bivariable plot
 
 ### plot 1
 
@@ -93,7 +93,7 @@ This table shows the average difference in stats at the 25 min mark for each reg
 
 <p></p>
 
-## Missingness Assessment
+# Missingness Assessment
 
 This is a table containing the top 5 most missing columns after counting all the missing values
 
@@ -153,7 +153,7 @@ if the p-value is less than α, we reject H0, indicating that the missingness of
 ></iframe>
 Based on the results of the permutation test, it can be determined that the missingness of 'totalkillsat25' is infact influenced by different regions in 'league' but not individual 'gameid'
 
-## Hypothesis Testing
+# Hypothesis Testing
 
 I want to see if kills in the early game, 10 minutes, actually affect the game length since pro play is more strategy heavy rather than simply killing your opponents.
 **Null Hypothesis (H0):** The total number of kills at the 10 minute mark, 'totalkillsat10' has no effect on the duration of the game, 'gamelength'
@@ -175,3 +175,16 @@ I want to see if kills in the early game, 10 minutes, actually affect the game l
 Since both 'totalkillsat10' and 'gamelength' are continuous and appromiximately linear, I chose the pearson test to find the correlation between the two variables and whether that correlation is significant.
 The pearson correlation value I got was around -0.09, signifying a very small negative correlation, and a p-value of around 2.45e-16.
 Since the p-value is less than our threshold of 0.05, we reject our null hypothesis and that we are 95% confident that there is a small negative correlation between 'totalkillsat10' and 'gamelength'.
+
+# Framing a Prediction Problem
+
+I plan to predict how long will a game last in minutes given the amount of kills at a certain time period.
+Since there was a significant correlation between 'totalkillsat10' and 'gamelength', I figured that if we use all information in 'totalkillsat*' where * can be 10,15,20,or 25 it is possible to predict how long a game ends.
+
+To evaluate the model’s performance, I will use the **mean squared error (MSE)** as the metric. MSE is suitable because it penalizes larger prediction errors more heavily, ensuring that my model minimizes substantial deviations from actual gametime. I also used the **R-squared value** to measure how well the features collectively explain the variance in average game times.
+
+# Baseline Model
+
+The baseline model is a **basic linear regression model** that predicts 'gamelength' using 'totalkillsat10' which was found as having a significant correlation in the previous section. Both 'totalkillsat10' and 'gamelength' are quantitative variables which means there was no need for any sort of enconding. The model gave the equation _y = -0.1507x + 32.8376_ where y is 'gamelength' and x is 'totalkillsat10'. It can be observed that most of the predictions are going to be somewhere around the 30-35 minute mark. After calcuating **mse** and **R^2**, which were around 27.455 and 0.009. Therefore I can conclude that this is a terrible model because the mse is 27 minutes which is unbelievably high and a extremely low R^2 also means that we can barely explain any sort of variance whatsoever.
+
+# Final Model
