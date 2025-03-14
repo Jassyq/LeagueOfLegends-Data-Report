@@ -64,4 +64,17 @@ This graph shows the relationship between game length in minutes and cs differen
   width="800"
   height="600"
   frameborder="0"
-></iframe>
+></iframe>\
+
+### pivot table
+
+This table shows the average difference in stats at the 25 min mark for each region that made it to the 2024 worlds, except LPL which do not have complete data.
+
+| League | CS Diff @25 | Gold Diff@25 | XP Diff@25 |
+| ------ | ----------- | ------------ | ---------- |
+| LCK    | 49.42       | 4963.75      | 5322.68    |
+| LCS    | 46.34       | 4724.95      | 4963.20    |
+| LEC    | 51.41       | 4711.63      | 5202.10    |
+| PCS    | 54.99       | 5905.65      | 5609.44    |
+| PCS    | 54.99       | 5905.65      | 5609.44    |
+| CBLOL  | 40.82       | 4618.18      | 4900.09    |
