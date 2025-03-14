@@ -22,3 +22,12 @@ This is the cleaned dataframe after removing unnecessary columns that is not rel
 | `'gamelength'`   | The length of the game in minutes               |
 | `'league'`       | The league's name which the game took place     |
 | `'totalkillsat_` | total amount of kills in the game at \_ minutes |
+
+## Univariable plot
+
+description
+
+'import plotly.express as px'
+'df = px.data.iris()'
+'fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species")'
+'fig.write_html("assets/my-plot.html", include_plotlyjs="cdn")'
