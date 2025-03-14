@@ -31,3 +31,11 @@ description
 'df = px.data.iris()'
 'fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species")'
 'fig.write_html("assets/my-plot.html", include_plotlyjs="cdn")'
+'mv my-plot.html assets/'
+
+<iframe
+  src="assets/my-plot.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
