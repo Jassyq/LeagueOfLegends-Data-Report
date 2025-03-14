@@ -17,15 +17,15 @@ This is the cleaned dataframe after removing unnecessary columns that is not rel
 | `'league'`       | The league's name which the game took place     |
 | `'totalkillsat_` | total amount of kills in the game at \_ minutes |
 
+<p></p>
+
 ## Univariable plot
 
 description
 
-```python
-import plotly.express as px
-df = px.data.iris()
-fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species")
-fig.write_html("assets/my-plot.html", include_plotlyjs="cdn")
-mv my-plot.html assets/
-<iframe src="assets/my-plot.html" width="800" height="600" frameborder="0"></iframe>
-```
+<iframe
+  src="assets/plots/uni1.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
