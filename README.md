@@ -30,3 +30,14 @@ We can see that the majority of the games is between 28-32 minutes and the graph
   height="600"
   frameborder="0"
 ></iframe>
+
+### Bivariable plot
+
+description
+
+<iframe
+  src="assets/plots/bi.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
