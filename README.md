@@ -7,15 +7,15 @@ In this project, we aim to analyze key variables and their impact on game length
 
 This is the cleaned dataframe after removing unnecessary columns that is not relevent to the driving question
 
-| Column           | Description                                     |
-| ---------------- | ----------------------------------------------- |
-| `'gameid'`       | The gameid for a specific game                  |
-| `'golddiffat_'`  | The gold difference at \_ minutes               |
-| `'xpdiffat_'`    | The experience difference at \_ minutes         |
-| `'csdoffat_'`    | The cs difference at \_ minutes                 |
-| `'gamelength'`   | The length of the game in minutes               |
-| `'league'`       | The league's name which the game took place     |
-| `'totalkillsat_` | total amount of kills in the game at \_ minutes |
+| Column            | Description                                     |
+| ----------------- | ----------------------------------------------- |
+| `'gameid'`        | The gameid for a specific game                  |
+| `'golddiffat_'`   | The gold difference at \_ minutes               |
+| `'xpdiffat_'`     | The experience difference at \_ minutes         |
+| `'csdoffat_'`     | The cs difference at \_ minutes                 |
+| `'gamelength'`    | The length of the game in minutes               |
+| `'league'`        | The league's name which the game took place     |
+| `'totalkillsat_'` | total amount of kills in the game at \_ minutes |
 
 <p></p>
 
