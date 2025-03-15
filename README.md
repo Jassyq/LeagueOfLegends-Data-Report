@@ -31,7 +31,9 @@ This is the cleaned dataframe after removing unnecessary columns that is not rel
 
 <p></p>
 
-# Univariable plot
+# General Plots
+
+## Univariable plot
 
 This histogram shows the distribution of all the gamelength in minutes in the dataset.
 We can see that the majority of the games is between 28-32 minutes and the graph is right skewed meaning there are less games that last longer.
@@ -43,9 +45,9 @@ We can see that the majority of the games is between 28-32 minutes and the graph
   frameborder="0"
 ></iframe>
 
-# Bivariable plot
+## Bivariable plot
 
-## plot 1
+### plot 1
 
 This graph shows the relationship between game length in minutes and experience difference at 15 minutes between both teams. We can see that there is a negative linear correlation between the two variables.
 
@@ -56,7 +58,7 @@ This graph shows the relationship between game length in minutes and experience 
   frameborder="0"
 ></iframe>
 
-## plot 2
+### plot 2
 
 This graph shows the relationship between game length in minutes and gold difference at the 15 minute mark. We can see that there is somewhat of a negative linear correlation similar to the plot above.
 
@@ -67,7 +69,7 @@ This graph shows the relationship between game length in minutes and gold differ
   frameborder="0"
 ></iframe>
 
-## plot 3
+### plot 3
 
 This graph shows the relationship between game length in minutes and cs difference at the 15 minute mark. We can also see that there is a visible negative linear correlation between the two variables.
 
