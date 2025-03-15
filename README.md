@@ -195,8 +195,8 @@ The baseline model is a **basic linear regression model** that predicts 'gamelen
 
 Upon the production of an inaccurate baseline model,
 
-1. I decided to include more relevent variables such as 'csdiffat*'and 'golddiffat*' in addition to 'totalkillsat\_' since the bloodiness level don't always represent a faster game because either teams might lose the same amount of members every fight which will cause a close game that'll last longer. Having additional information like cs difference and gold difference will allow the model to give a more accurate representation of the game time since larger experience and gold difference can represent how ahead the team is from the enemy team in a game.
-2. All the 'totalkillsat*' columns were already engineered before performing the baseline model from columns like 'killsat*' and 'opp_killsat' from the original dataset to give an overall summary of the amount of kills in each game by time.
+1. I decided to include more relevent variables such as _'csdiffat\_'_ and _'golddiffat\_'_ in addition to _'totalkillsat\_'_ since the bloodiness level don't always represent a faster game because either teams might lose the same amount of members every fight which will cause a close game that'll last longer. Having additional information like cs difference and gold difference will allow the model to give a more accurate representation of the game time since larger experience and gold difference can represent how ahead the team is from the enemy team in a game.
+2. All the _'totalkillsat\_'_ columns were already engineered before performing the baseline model from columns like _'killsat\_'_ and _'opp_killsat'_ from the original dataset to give an overall summary of the amount of kills in each game by time.
 3. I also engineered columns 'has\_*x*min' using **column transformer** where x represents the time 10,15,20,25 to label each game to reduce misinputs like when a game ended before 25 minutes but was still used to predict games which lasted longer than 25 minutes.
 
 ### Hyperparameter Tuning with `GridSearchCV`
