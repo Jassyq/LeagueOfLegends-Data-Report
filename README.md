@@ -188,3 +188,23 @@ To evaluate the model’s performance, I will use the **mean squared error (MSE)
 The baseline model is a **basic linear regression model** that predicts 'gamelength' using 'totalkillsat10' which was found as having a significant correlation in the previous section. Both 'totalkillsat10' and 'gamelength' are quantitative variables which means there was no need for any sort of enconding. The model gave the equation _y = -0.1507x + 32.8376_ where y is 'gamelength' and x is 'totalkillsat10'. It can be observed that most of the predictions are going to be somewhere around the 30-35 minute mark. After calcuating **mse** and **R^2**, which were around 27.455 and 0.009. Therefore I can conclude that this is a terrible model because the mse is 27 minutes which is unbelievably high and a extremely low R^2 also means that we can barely explain any sort of variance whatsoever.
 
 # Final Model
+
+### Improving on the basic model
+
+Upon the production of an inaccurate baseline model,
+
+1. I decided to include more relevent variables such as 'csdiffat*'and 'golddiffat*' in addition to 'totalkillsat\_' since the bloodiness level don't always represent a faster game because either teams might lose the same amount of members every fight which will cause a close game that'll last longer. Having additional information like cs difference and gold difference will allow the model to give a more accurate representation of the game time since larger experience and gold difference can represent how ahead the team is from the enemy team in a game.
+2. All the 'totalkillsat*' columns were already engineered before performing the baseline model from columns like 'killsat*' and 'opp_killsat' from the original dataset to give an overall summary of the amount of kills in each game by time.
+3. I also engineered columns 'has\_*x*min' using **column transformer** where x represents the time 10,15,20,25 to label each game to reduce misinputs like when a game ended before 25 minutes but was still used to predict games which lasted longer than 25 minutes.
+
+### Hyperparameter Tuning with `GridSearchCV`
+
+To improve my multiple linear regression model, I performed a hyperparameter tuning using `GridSearchCV` to test different values for four hyperparameters: `n_estimators`, which is the number of decision trees, `max_depth`, depth of the trees, `min_samples_split`, which controls when a node should split into two branches, and `min_samples_leaf` that sets the minimum number of samples that must be present in a leaf node. The best model hyperparameters turned out to be `n_estimators=200`, `max_depth=5`,`min_samples_split=10`,`min_sample_leaf=2`. From these, I can infer that the model overfitted or took too much while going in depth during the training stage.
+After this hyperparameter tuning, I recalculated my metric and saw an improvement in the **R^2 value increased to 0.36** from the old 0.009, while the **mse decreased to 17.73 from 27.45**. Although the R^2 value is still on the lower end, it is a significant improvement from my old model. Looking at the coefficients, the highest 3 are:
+
+1. 'golddiffat25': 0.4044
+2. 'xpdiffat25': 0.0447
+3. 'totalkillsat25': 0.0102
+   'golddiffat25' has a significantly bigger coefficient than the rest of the variables which indicate that gold differences are more important than other differences and the bloody level of a game. This make sense since every decision a pro team make in the game is to net themselves more gold than their opponent.
+
+# Fairness Analysis
