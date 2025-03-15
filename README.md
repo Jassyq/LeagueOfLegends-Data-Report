@@ -45,7 +45,7 @@ We can see that the majority of the games is between 28-32 minutes and the graph
 
 # Bivariable plot
 
-### plot 1
+## plot 1
 
 This graph shows the relationship between game length in minutes and experience difference at 15 minutes between both teams. We can see that there is a negative linear correlation between the two variables.
 
@@ -56,7 +56,7 @@ This graph shows the relationship between game length in minutes and experience 
   frameborder="0"
 ></iframe>
 
-### plot 2
+## plot 2
 
 This graph shows the relationship between game length in minutes and gold difference at the 15 minute mark. We can see that there is somewhat of a negative linear correlation similar to the plot above.
 
@@ -67,7 +67,7 @@ This graph shows the relationship between game length in minutes and gold differ
   frameborder="0"
 ></iframe>
 
-### plot 3
+## plot 3
 
 This graph shows the relationship between game length in minutes and cs difference at the 15 minute mark. We can also see that there is a visible negative linear correlation between the two variables.
 
@@ -78,7 +78,7 @@ This graph shows the relationship between game length in minutes and cs differen
   frameborder="0"
 ></iframe>
 
-### pivot table
+## pivot table
 
 This table shows the average difference in stats at the 25 min mark for each region that made it to the 2024 worlds, except LPL which do not have complete data.
 
@@ -107,11 +107,11 @@ This is a table containing the top 5 most missing columns after counting all the
 
 <p></p>
 
-### Not Missing At Random (NMAR) Analysis
+## Not Missing At Random (NMAR) Analysis
 
 I believe that the missingess of columns such as gold/xp/cs diff at x minutes all have the potential to be NMAR since it can be understood that games from certain days or region just do not have the data present. This reasoning is also backed up by the missingness table for the top 5 most missing values which the top four have the same percetange of missingness.
 
-### Assessment of Missingness
+## Assessment of Missingness
 
 Since there are four columns with the same amount of missingness, I chose 'totalkillsat25' as the variable I was most interested in. I want to test out whether the column is MAR or NMAR.
 To test the hypothesis, a permuitation test is performed to evaluate if the missingness of 'totalkillsat25' is affected by the column 'league' which represents the region, and 'gameid' the id for each game.
@@ -205,6 +205,28 @@ After this hyperparameter tuning, I recalculated my metric and saw an improvemen
 1. 'golddiffat25': 0.4044
 2. 'xpdiffat25': 0.0447
 3. 'totalkillsat25': 0.0102
-   'golddiffat25' has a significantly bigger coefficient than the rest of the variables which indicate that gold differences are more important than other differences and the bloody level of a game. This make sense since every decision a pro team make in the game is to net themselves more gold than their opponent.
+
+'golddiffat25' has a significantly bigger coefficient than the rest of the variables which indicate that gold differences are more important than other differences and the bloody level of a game. This make sense since every decision a pro team make in the game is to net themselves more gold than their opponent.
 
 # Fairness Analysis
+
+To further put our final model to the test, we analyzed the fairness of our model by comparing its performance on short versus long reviews. Since we are using linear regression, we chose the **difference in R^2** as our test statistic. This helps us assess whether the model performs differently for short and long reviews. Our analysis uses a permutation test to determine if any observed differences in performance are likely due to random chance. We divided our data into 2 groups: reviews with a length less than or equal to the median review length & reviews with a length greater than the median review length. This is done to test if our model may perform differently on shorter or longer reviews.
+
+**Null Hypothesis (H0)**: The model is fair. The precision for both games played in the LCK and games played in other regions.
+
+<p></p>
+
+**Alternative Hypothesis (H₁)**: The model is unfair. The precision for games played in the LCK is different than the games played in other regions.
+
+<p></p>
+
+**Test Statistic:** Difference in R^2
+
+<p></p>
+
+**Significance Level (α):** 0.05
+
+<p></p>
+
+After running a permutation test 1000 times, the **observed R^2 Difference was -0.0379** and our **p-value was 0.224.** The observed R^2 difference of -0.0379 indicates that the model performed slightly worse on matches from the lck compared to matches from other regions. However, this difference is very small and, given the p-value of 0.224, it is not statistically significant.
+Since the p-value is greater than our 0.05, we **fail to reject** the null hypothesis. Therefore, based on the permutation test, there is no significant difference in model performance between games played in the lck and games played in other regions. We can safely conclude that our model **appears to be fair**, at least based on regions, since its R^2 performance does not differ significantly between the lck and other regions.
